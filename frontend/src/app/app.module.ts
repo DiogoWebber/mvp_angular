@@ -24,6 +24,7 @@ import { ForDirective } from './directives/for.directive';
     FooterComponent,
     NavComponent,
     HomeComponent,
+    ProductCrudComponent,
     RedDirective,
     ForDirective
   ],
