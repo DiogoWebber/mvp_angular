@@ -6,9 +6,11 @@
 .sidenav a {
     color: #FFF;
 } 
-.logo{
-    max-height: 90px;
-}
 .sidenav i{
     padding-right: 10px;
+}
+
+.content{
+    padding: 16px;
+    background-color: white;
 }
