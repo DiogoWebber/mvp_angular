@@ -22,14 +22,17 @@ export class ProductCreateComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  createProduct(): void{
+  createProduct(): void {
+    if (this.product.price === 0) {
+      // Exibir uma mensagem ou tomar alguma ação adequada, como impedir a criação do produto
+      alert('O preço não pode ser zero.');
+      return;
+    }
+  
     this.productService.create(this.product).subscribe(() => {
-      this.productService.showMessage('Produto Criado')
-      this.router.navigate(['/products'])
-
-    })
-
-
+      this.productService.showMessage('Produto Criado');
+      this.router.navigate(['/products']);
+    });
   }
   cancel(): void{
     this.router.navigate(['/products'])

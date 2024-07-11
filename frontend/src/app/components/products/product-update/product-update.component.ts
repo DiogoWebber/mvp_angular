@@ -24,12 +24,16 @@ export class ProductUpdateComponent implements OnInit {
     })
   }
 
-  updateProduct(): void{
+  updateProduct(): void {
+    if (this.product.price === null || this.product.price === 0) {
+      console.log('O preço deve ser maior que zero. Produto não será atualizado.');
+      return;
+    }
+  
     this.ProductService.update(this.product).subscribe(() => {
-      this.ProductService.showMessage('Produto Alterado')
-      this.router.navigate(['/products'])
-
-    })
+      this.ProductService.showMessage('Produto Alterado');
+      this.router.navigate(['/products']);
+    });
   }
   cancel(): void{
     this.router.navigate(['/products'])

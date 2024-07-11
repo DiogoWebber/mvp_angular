@@ -1,14 +1,19 @@
 {
   "products": [
     {
-      "id": "32dc",
+      "id": "2956",
       "name": "carro",
-      "price": "22222"
+      "price": "150000"
     },
     {
-      "id": "361b",
-      "name": "laranja",
-      "price": "2500000"
+      "id": "4cc7",
+      "name": "diogo",
+      "price": "150000"
+    },
+    {
+      "id": "9e91",
+      "name": "seila",
+      "price": "15000"
     }
   ]
 }

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { Product } from '../products/product.modelo';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -35,11 +35,18 @@ readById(id: string): Observable<Product>{
   const url = `${this.baseUrl}/${id}`
   return this.http.get<Product>(url)
 }
+update(product: Product): Observable<Product> {
+  // Verificar se o preço é maior que zero antes de enviar
+  if (product.price !== null && product.price <= 0) {
+    alert('O preço deve ser maior que zero. Produto não será atualizado.');
+    // Você pode retornar um Observable com um erro ou null, dependendo do tratamento desejado
+    return throwError('O preço deve ser maior que zero.');
+  }
 
-update(product: Product): Observable<Product>{
-  const url = `${this.baseUrl}/${product.id}`
-  return this.http.put<Product>(url, product)
+  const url = `${this.baseUrl}/${product.id}`;
+  return this.http.put<Product>(url, product);
 }
+
 
 delete(id: string): Observable<Product> {
   const url = `${this.baseUrl}/${id}`;
