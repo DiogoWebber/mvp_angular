@@ -1,6 +1,7 @@
-import { ProductService } from './../../product/product.service';
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../product.modelo';
+import { Product } from './../product.modelo';
+import { ProductService } from '../../product/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-read',
@@ -9,18 +10,21 @@ import { Product } from '../product.modelo';
 })
 export class ProductReadComponent implements OnInit {
 
-  products: Product[] = []
-  displayedColumns = ['id', 'name', 'price', 'action']
+  products: Product[] = []; // Definindo a propriedade products como uma lista de Product
+  displayedColumns = ['id', 'name', 'price', 'action'];
 
-  constructor(private ProductService: ProductService) { }
+  constructor(private productService: ProductService, private router: Router) { }
 
   ngOnInit(): void {
-    this.ProductService.read().subscribe((products: Product[]) => {
-      this.products = products
-      console.log(this.products)
-    })
-
-
+    this.productService.read().subscribe(products => {
+      this.products = products;
+    });
   }
 
+  deleteProduct(id: number): void { // Agora aceita id como number
+    this.productService.delete(id.toString()).subscribe(() => {
+      this.productService.showMessage('Produto Deletado');
+      this.products = this.products.filter(product => product.id !== id);
+    });
+  }
 }

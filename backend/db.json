@@ -1,29 +1,14 @@
 {
   "products": [
     {
-      "id": "1",
-      "name": "Caneta BIC Preta",
-      "price": "1500"
-    },
-    {
-      "id": "2",
-      "name": "Notebook Mac Pro",
-      "price": 12000.89
-    },
-    {
-      "id": "3",
-      "name": "Sansung S20+ Ultra",
-      "price": "7520.89"
-    },
-    {
-      "id": "e90c",
-      "name": "Diogo Evaldt Webber",
-      "price": "155150"
-    },
-    {
-      "id": "9b42",
+      "id": "32dc",
       "name": "carro",
-      "price": "150000"
+      "price": "22222"
+    },
+    {
+      "id": "361b",
+      "name": "laranja",
+      "price": "2500000"
     }
   ]
 }

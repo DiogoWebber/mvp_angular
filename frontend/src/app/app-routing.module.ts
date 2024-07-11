@@ -1,3 +1,4 @@
+import { ProductReadComponent } from './components/products/product-read/product-read.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -22,6 +23,11 @@ const routes: Routes = [
   {
     path: "products/update/:id",
     component: ProductUpdateComponent
+  }
+  ,
+  {
+    path: "products/delete/:id",
+    component: ProductReadComponent
   }
 ];
 
